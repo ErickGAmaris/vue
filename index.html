@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<main id="app">
+
+<!-- 		<h1 v-show="estaActivado" > {{ menasaje }} </h1>	
+		<input  type="" name="" v-model="menasaje">
+
+		<template v-if="estaActivado">		
+			<p >
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde dolor corporis, reiciendis ad sequi illum maiores odio nobis, sit voluptas esse deserunt quia animi delectus? Laudantium consequatur voluptatibus ab corporis?
+			</p>
+		</template>
+
+		<ul>
+			<li v-for="(dia, index) in diasDeLaSemana" > 
+				Este dia {{ index + 1 }} de la semana es {{ dia  }} 
+			</li>
+		</ul>
+
+		<h2>Lista de personas</h2>
+		<ul>
+			<li v-for=" persona in personas">
+				Soy {{ persona.nombre }} y tengo {{ persona.edad }} anios
+
+			</li>
+		</ul>
+
+
+		<h2 v-else>
+			Lorem ipsum dolor sit amet.
+		</h2>
+
+		<pre>
+			{{ $data }}
+		</pre> -->
+
+
+<!-- 		<h1>Lista de compras</h1>
+		<section>
+			<input type="text" v-model="nuevoElementoNombre" placeholder="Elemento">
+			<input type="text" v-model="nuevoElementoValor">
+			<button v-on:click="traerPersonas">Agregar</button>	
+		</section>
+		<ol>
+			<li v-for="elemento in listaDeCompras">
+				{{ elemento.nombre }} - ${{ elemento.valor }}
+
+			</li>
+		</ol>
+ -->
+ 		<button v-on:click="traerPersonas">Agregar</button>
+
+ 		<section v-for="persona in personas">
+ 			<img :src="persona.picture.large" alt="">
+ 			<h1 >{{ persona.name.first}}</h1>
+
+ 		</section>
+
+
+
+
+
+	</main>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
