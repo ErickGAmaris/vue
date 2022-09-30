@@ -3,69 +3,141 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Consulta de peliculas</title>
+
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.contenedor-peliculas{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+		.carta {
+			padding: 10px;
+			width: 320px;
+			background: lightgray;
+			border: 1px #000 solid;
+		}
+		.carta figure, .carta img {
+			width: 100%;
+		}
+		.carta h2 {
+			font-family: helvetica;
+		}
+		header {
+			font-size: 2rem;
+			text-align: center;
+			padding: 20px;
+		}
+		.busqueda {
+			display: flex;
+			justify-content: center;
+			padding: 20px;
+		}
+		.busqueda input{
+			padding: 5px 10px;
+			font-size: 1.2rem;
+		}
+		.busqueda button {
+			font-size: 1.2rem;
+			border: solid 1px;
+			background: #000;
+			color:  #fff;
+			cursor: pointer;
+			transition: .4s;
+			padding: 0 10px;
+			border-radius: 0 5px 5px 0;
+		}
+		.busqueda button:hover {
+			background: #fff;
+			color: #000;
+		}
+		.busqueda button:active {
+			color: cyan;
+			border: solid 1px cyan;
+		}
+		.busqueda {
+			position: sticky;
+			top:  20px;
+		}
+		.about {
+			width: 80%;
+			text-align: center;
+			margin: 10px auto;
+			background: #fff;
+			
+		}
+
+	</style>
+
 </head>
-<body>
+<body style="position:relative;">
+
 	<main id="app">
-
-<!-- 		<h1 v-show="estaActivado" > {{ menasaje }} </h1>	
-		<input  type="" name="" v-model="menasaje">
-
-		<template v-if="estaActivado">		
-			<p >
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde dolor corporis, reiciendis ad sequi illum maiores odio nobis, sit voluptas esse deserunt quia animi delectus? Laudantium consequatur voluptatibus ab corporis?
-			</p>
-		</template>
-
+		<header>
+			Consulta de peliculas pagina {{ pagina }}
+		</header>
+<!-- 
 		<ul>
-			<li v-for="(dia, index) in diasDeLaSemana" > 
-				Este dia {{ index + 1 }} de la semana es {{ dia  }} 
-			</li>
-		</ul>
-
-		<h2>Lista de personas</h2>
-		<ul>
-			<li v-for=" persona in personas">
-				Soy {{ persona.nombre }} y tengo {{ persona.edad }} anios
-
-			</li>
-		</ul>
-
-
-		<h2 v-else>
-			Lorem ipsum dolor sit amet.
-		</h2>
-
-		<pre>
-			{{ $data }}
-		</pre> -->
-
-
-<!-- 		<h1>Lista de compras</h1>
-		<section>
-			<input type="text" v-model="nuevoElementoNombre" placeholder="Elemento">
-			<input type="text" v-model="nuevoElementoValor">
-			<button v-on:click="traerPersonas">Agregar</button>	
-		</section>
-		<ol>
 			<li v-for="elemento in listaDeCompras">
-				{{ elemento.nombre }} - ${{ elemento.valor }}
+				
+				{{ elemento.nombre }}
 
 			</li>
-		</ol>
- -->
- 		<button v-on:click="traerPersonas">Agregar</button>
-
- 		<section v-for="persona in personas">
- 			<img :src="persona.picture.large" alt="">
- 			<h1 >{{ persona.name.first}}</h1>
-
- 		</section>
+		</ul>
 
 
+		<ul>
+			<li v-for="elemento in nombreDeLosElementosDeLaListaDeCompras">
+				
+				{{ elemento }}
 
+			</li>
+		</ul> -->
 
+<!-- 		<h1>Las ultimas peliculas de BatMan desde los ultimos {{ aniosFiltro }} anos</h1>
+		<h2>son {{ ultimasPeliculas.length }}</h2>
+		<input type="range" max="30" min="0" v-model="aniosFiltro">
 
+		<section>
+			<div v-for="pelicula in ultimasPeliculas">
+				<h2> {{ pelicula.Title }}</h2>
+				<span> {{ pelicula.Year }}</span>
+			</div>
+		</section> -->
+
+		<section class="busqueda">
+			<button  @click="menosBusqueda" class="menos-peliculas">
+				<
+			</button>
+			<input v-on:keyup.enter="busqueda" type="text" v-model="peliculaHaBuscar">
+			<button  @click="busqueda" >Buscar</button>
+
+			<button  @click="masBusqueda" class="mas-peliculas">
+				>
+			</button>
+
+		</section>
+
+		<section class="contenedor-peliculas">
+			
+			<article class="carta" v-for="pelicula in peliculasEnNPagina">
+				<figure>
+					<img v-bind:src="pelicula.Poster" alt="pelicula.Tiltel">
+				</figure>
+
+				<div class="about">
+					<h2>{{ pelicula.Title }}</h2>
+					<p>{{ pelicula.Type }} - {{ pelicula.Year }}</p>
+				</div>
+			</article>
+
+		</section>
 	</main>
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<script type="text/javascript" src="script.js"></script>
